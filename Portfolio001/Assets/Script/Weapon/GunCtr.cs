@@ -10,7 +10,8 @@ public class GunCtr : MonoBehaviour
 
 	private float ReloadMode;                               //リロード状態
 
-	//状態変数	
+    //状態変数	
+    public bool canFire = false;
 	public bool isFineSightMode = false;                    //照準状態
 	private bool isReload = false;                          //リロード状態
 	private bool isFire = false;                            //発射状態
@@ -37,11 +38,14 @@ public class GunCtr : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		FireTry();
-		TryFineSight();
-		ReloadTry();
-		CarryAmmor.text = "" + currentGun.carryBulletCount;
-		Reload_CurrentAmmor.text = currentGun.reloadBulletCount + "　/　" + currentGun.currentBulletCount;
+        if (canFire)
+        {
+            FireTry();
+            TryFineSight();
+            ReloadTry();
+            CarryAmmor.text = "" + currentGun.carryBulletCount;
+            Reload_CurrentAmmor.text = currentGun.reloadBulletCount + "　/　" + currentGun.currentBulletCount;
+        }
 	}
 
 	//発射試し

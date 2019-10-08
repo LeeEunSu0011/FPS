@@ -24,4 +24,16 @@ public class Gun : MonoBehaviour
 	public Animator anim;						//アニメーション
 	public ParticleSystem fireMuzzleFlash;      //銃口のイフェクト
 	public AudioSource fireSound;				//発射SE
+
+    public GunCtr gunctr;
+
+    public void cantshootting()
+    {
+        gunctr.canFire = false;
+    }
+
+    public void canshootting()
+    {
+        gunctr.canFire = true;
+    }
 }

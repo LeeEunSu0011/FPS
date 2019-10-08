@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DoorEvent : MonoBehaviour
 {
-	public GameObject PlayerCamera;
-	public GameObject DoorEventCamera;
+	public GameObject playerCamera;
+	public GameObject eventCamera;
 
 	public Animator anim;
 	public Door door;
@@ -15,10 +15,10 @@ public class DoorEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		PlayerCamera = GameObject.Find("Main Camera");
-		DoorEventCamera = GameObject.Find("DoorEventCamera");
+        playerCamera = GameObject.Find("Main Camera");
+        eventCamera = GameObject.Find("DoorEventCamera");
 
-		DoorEventCamera.SetActive(false);
+        eventCamera.SetActive(false);
 
 		anim = GetComponent<Animator>();
 		doorctr = GetComponent<DoorCtr>();
@@ -34,13 +34,13 @@ public class DoorEvent : MonoBehaviour
 
 	void FirstCameraChange()
 	{
-		PlayerCamera.SetActive(false);
-		DoorEventCamera.SetActive(true);
+        playerCamera.SetActive(false);
+        eventCamera.SetActive(true);
 	}
 
 	void LastCameraCtr()
 	{
-		PlayerCamera.SetActive(true);
-		DoorEventCamera.SetActive(false);
+        playerCamera.SetActive(true);
+        eventCamera.SetActive(false);
 	}
 }
